@@ -14,6 +14,31 @@
   --gold-accent: #FFD700; /* Brighter gold for better visibility */
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Desktop optimizations */
+@media (min-width: 1024px) {
+  :root {
+    font-size: 18px;
+  }
+
+  .MuiTypography-h2 {
+    font-size: 3.5rem !important;
+  }
+
+  .MuiTypography-h5 {
+    font-size: 1.8rem !important;
+  }
+
+  .MuiTypography-body1 {
+    font-size: 1.2rem !important;
+  }
+}
+
 body {
   background: linear-gradient(to bottom right, var(--background-color), #FAEBD7);
   margin: 0;

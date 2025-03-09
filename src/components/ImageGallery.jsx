@@ -1,27 +1,40 @@
 import { Box, IconButton, Card, CardMedia, Typography } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import '../styles/animations.css';
 
 const galleryImages = [
   {
-    url: 'https://images.unsplash.com/photo-1586105251261-72a756497a11',
+    url: 'https://picsum.photos/800/500?random=1',
     title: 'Jardín Principal'
   },
   {
-    url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf',
+    url: 'https://picsum.photos/800/500?random=2',
     title: 'Sala Común'
   },
   {
-    url: 'https://images.unsplash.com/photo-1595527397340-8c917b452c04',
+    url: 'https://picsum.photos/800/500?random=3',
     title: 'Comedor'
   },
   {
-    url: 'https://images.unsplash.com/photo-1595527397340-8c917b452c04',
+    url: 'https://picsum.photos/800/500?random=4',
     title: 'Capilla'
   },
   {
-    url: 'https://images.unsplash.com/photo-1595527397340-8c917b452c04',
+    url: 'https://picsum.photos/800/500?random=5',
     title: 'Área de Actividades'
+  },
+  {
+    url: 'https://picsum.photos/800/500?random=6',
+    title: 'Sala de Lectura'
+  },
+  {
+    url: 'https://picsum.photos/800/500?random=7',
+    title: 'Área de Descanso'
+  },
+  {
+    url: 'https://picsum.photos/800/500?random=8',
+    title: 'Jardín Trasero'
   }
 ];
 
@@ -74,7 +87,26 @@ const ImageGallery = () => {
         }}
       >
         {galleryImages.map((image, index) => (
-          <Card key={index} sx={{ minWidth: 280, maxWidth: 280, flexShrink: 0 }}>
+          <Card key={index} sx={{ 
+            minWidth: {
+              xs: 280,
+              md: 320
+            },
+            maxWidth: {
+              xs: 280,
+              md: 320
+            },
+            flexShrink: 0,
+            transition: 'all 0.3s ease-in-out',
+            '&:hover': {
+              transform: 'scale(1.05)',
+              boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+              '& img': {
+                filter: 'brightness(1.1)',
+                transition: 'all 0.3s ease-in-out'
+              }
+            }
+          }}>
             <CardMedia
               component="img"
               height="200"
@@ -82,7 +114,14 @@ const ImageGallery = () => {
               alt={image.title}
               sx={{ objectFit: 'cover' }}
             />
-            <Typography variant="subtitle1" sx={{ p: 1, textAlign: 'center' }}>
+            <Typography variant="subtitle1" sx={{ 
+              p: {
+                xs: 1,
+                md: 2
+              },
+              fontSize: { xs: '1rem', md: '1.2rem' },
+              textAlign: 'center' 
+            }}>
               {image.title}
             </Typography>
           </Card>

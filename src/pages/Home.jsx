@@ -74,20 +74,74 @@ const Home = () => {
         </Box>
       </Box>
 
+      {/* Residents Preview Section */}
+      <Box sx={{ 
+        my: 4, 
+        px: 2,
+        maxWidth: '100%',
+        overflow: 'hidden'
+      }}>
+        <Typography variant="h4" component="h2" 
+          sx={{ 
+            mb: 4, 
+            color: 'var(--primary-color)',
+            textAlign: 'center',
+            fontFamily: 'Cinzel, serif'
+          }}>
+          Nuestros Residentes
+        </Typography>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: 4,
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+          {[
+            { image: 'https://randomuser.me/api/portraits/women/76.jpg', name: 'María González', desc: 'Residente desde 2020' },
+            { image: 'https://randomuser.me/api/portraits/men/82.jpg', name: 'José Martínez', desc: 'Residente desde 2019' }
+          ].map((resident, index) => (
+            <Paper key={index} sx={{
+              p: 3,
+              maxWidth: 300,
+              textAlign: 'center',
+              backgroundColor: 'var(--background-color)',
+              borderRadius: '12px'
+            }}>
+              <Box component="img" src={resident.image} alt={resident.name}
+                sx={{ width: 200, height: 200, borderRadius: '50%', mb: 2 }} />
+              <Typography variant="h6">{resident.name}</Typography>
+              <Typography variant="body2" sx={{ mb: 2 }}>{resident.desc}</Typography>
+            </Paper>
+          ))}
+        </Box>
+        <Box sx={{ textAlign: 'center', mt: 3 }}>
+          <Button component={Link} to="/residentes" variant="contained"
+            sx={{ backgroundColor: 'var(--primary-color)', '&:hover': { backgroundColor: 'var(--catholic-purple)' } }}>
+            Conoce a todos nuestros residentes
+          </Button>
+        </Box>
+      </Box>
+
       {/* Daily Prayer Section */}
       <Paper sx={{ 
         my: 4,
+        mx: 'auto',
+        maxWidth: '600px',
         backgroundColor: 'var(--background-color)',
         border: '2px solid var(--catholic-gold)',
         borderRadius: '8px',
         boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-        p: 3 
+        p: 3,
+        textAlign: 'center'
       }}>
-        <ChurchIcon sx={{ fontSize: 40, color: 'var(--catholic-purple)', mb: 2 }} />
-        <Typography variant="h5" gutterBottom sx={{ color: 'var(--primary-color)' }}>
+        <Box display="flex" justifyContent="center">
+          <ChurchIcon sx={{ fontSize: 40, color: 'var(--catholic-purple)', mb: 2 }} />
+        </Box>
+        <Typography variant="h5" gutterBottom sx={{ color: 'var(--primary-color)', textAlign: 'center' }}>
           Oración del Día
         </Typography>
-        <Typography variant="body1" sx={{ fontStyle: 'italic' }}>
+        <Typography variant="body1" sx={{ fontStyle: 'italic', textAlign: 'center' }}>
           "Señor, haz de mí un instrumento de tu paz..."
         </Typography>
       </Paper>

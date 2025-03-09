@@ -2,7 +2,7 @@ import { Container, Typography, Grid, Card, CardContent, Button, TextField, Box 
 
 const Volunteer = () => {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" sx={{ pt: 4, mt: { xs: 4, md: 2 } }}>
       <Typography variant="h3" component="h1" gutterBottom sx={{ my: 4 }}>
         Voluntariado
       </Typography>
