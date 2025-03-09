@@ -26,18 +26,29 @@ const Home = () => {
           position: 'relative',
           zIndex: 1,
           color: 'white', 
-          textAlign: 'center' 
+          textAlign: 'center',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          padding: '2rem',
+          borderRadius: '8px',
+          maxWidth: '90%'
         }}>
          <Typography variant="h2" component="h1" gutterBottom className="fade-in">
-           <span style={{ fontFamily: 'Cinzel, serif' }}>
+           <span style={{ fontFamily: 'Cinzel, serif', fontWeight: 'bold' }}>
              Bienvenidos a Casa de Reposo Santa María
            </span>
          </Typography>
-         <Typography variant="h5" component="h2" gutterBottom color="text.secondary" 
+         <Typography variant="h5" component="h2" gutterBottom
            className="fade-in-up" sx={{ animationDelay: '0.5s' }}>
            Un lugar donde el cuidado y la compasión se encuentran
          </Typography>
-         <Box sx={{ mt: 4 }} className="fade-in-up" style={{ animationDelay: '1s' }}>
+         <Box sx={{ 
+           mt: 4,
+           display: 'flex',
+           flexDirection: { xs: 'column', sm: 'row' },
+           gap: { xs: 2, sm: 0 },
+           alignItems: 'center',
+           justifyContent: 'center'
+         }} className="fade-in-up" style={{ animationDelay: '1s' }}>
            <Button 
              component={Link} 
              to="/sobre-nosotros" 
@@ -67,7 +78,7 @@ const Home = () => {
                color: 'white',
                fontWeight: 'bold',
                '&:hover': { backgroundColor: 'var(--catholic-purple)' },
-               ml: 2
+               ml: { xs: 0, sm: 2 }
              }}
            >
              Hacer una donación
