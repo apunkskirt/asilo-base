@@ -1,5 +1,6 @@
 import { Container, Typography, Box, Button, Paper, Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
+import HeroSlideshow from '../components/HeroSlideshow';
 import HowToGetThere from '../components/HowToGetThere';
 import ImageGallery from '../components/ImageGallery';
 import ChurchIcon from '@mui/icons-material/Church';
@@ -10,28 +11,27 @@ const Home = () => {
     <>
       <Box 
         sx={{ 
-          backgroundImage: 'url("/chapel-hero.jpg")',
+          position: 'relative',
+          marginTop: { xs: '56px', sm: '64px' },
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '60vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          position: 'relative',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(114, 47, 55, 0.6)' // Deep burgundy with transparency
-          }
         }}
       >
-        <Box sx={{ position: 'relative', color: 'white', textAlign: 'center' }}>
+        <HeroSlideshow />
+        <Box sx={{ 
+          position: 'relative',
+          zIndex: 1,
+          color: 'white', 
+          textAlign: 'center' 
+        }}>
          <Typography variant="h2" component="h1" gutterBottom className="fade-in">
-           Bienvenidos a Casa de Reposo Santa María
+           <span style={{ fontFamily: 'Cinzel, serif' }}>
+             Bienvenidos a Casa de Reposo Santa María
+           </span>
          </Typography>
          <Typography variant="h5" component="h2" gutterBottom color="text.secondary" 
            className="fade-in-up" sx={{ animationDelay: '0.5s' }}>
@@ -45,6 +45,7 @@ const Home = () => {
              size="large" 
              className="button-hover"
              sx={{
+               minWidth: '220px',
                backgroundColor: 'var(--primary-color)',
                fontWeight: 'bold',
                '&:hover': {
@@ -62,6 +63,7 @@ const Home = () => {
              className="button-hover"
              sx={{
                backgroundColor: 'var(--primary-color)',
+               minWidth: '220px',
                color: 'white',
                fontWeight: 'bold',
                '&:hover': { backgroundColor: 'var(--catholic-purple)' },
@@ -106,10 +108,19 @@ const Home = () => {
               maxWidth: 300,
               textAlign: 'center',
               backgroundColor: 'var(--background-color)',
-              borderRadius: '12px'
+              borderRadius: '12px',
+              transition: 'all 0.3s ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.05)',
+                boxShadow: '0 8px 16px rgba(0,0,0,0.2)'
+              }
             }}>
               <Box component="img" src={resident.image} alt={resident.name}
-                sx={{ width: 200, height: 200, borderRadius: '50%', mb: 2 }} />
+                sx={{ 
+                  width: 200, height: 200, borderRadius: '50%', mb: 2,
+                  transition: 'all 0.3s ease-in-out',
+                  '&:hover': { filter: 'brightness(1.1)' }
+                }} />
               <Typography variant="h6">{resident.name}</Typography>
               <Typography variant="body2" sx={{ mb: 2 }}>{resident.desc}</Typography>
             </Paper>
@@ -117,14 +128,22 @@ const Home = () => {
         </Box>
         <Box sx={{ textAlign: 'center', mt: 3 }}>
           <Button component={Link} to="/residentes" variant="contained"
-            sx={{ backgroundColor: 'var(--primary-color)', '&:hover': { backgroundColor: 'var(--catholic-purple)' } }}>
+            className="button-hover"
+            sx={{
+              backgroundColor: 'var(--primary-color)',
+              minWidth: '220px',
+              '&:hover': {
+                backgroundColor: 'var(--catholic-purple)',
+                transform: 'translateY(-2px)'
+              }
+            }}>
             Conoce a todos nuestros residentes
           </Button>
         </Box>
       </Box>
 
       {/* Daily Prayer Section */}
-      <Paper sx={{ 
+      <Paper sx={{
         my: 4,
         mx: 'auto',
         maxWidth: '600px',

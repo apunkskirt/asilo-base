@@ -41,12 +41,14 @@ const FloatingButtons = () => {
           right: 20,
           bottom: 20,
           padding: {
-            xs: '12px 20px',
-            md: '16px 32px'
+            xs: '8px 12px',
+            sm: '10px 16px',
+            md: '12px 24px'
           },
           fontSize: {
-            xs: '1rem',
-            md: '1.2rem'
+            xs: '0.75rem',
+            sm: '0.85rem',
+            md: '1rem'
           },
           backgroundColor: 'var(--primary-color)',
           color: 'white',
@@ -55,10 +57,17 @@ const FloatingButtons = () => {
             transform: 'scale(1.1)',
           },
           zIndex: 1000,
+          width: {
+            xs: '160px',
+            sm: '200px',
+            md: '240px'
+          },
+          whiteSpace: 'nowrap',
+          overflow: 'hidden'
         }}
       >
-        <Typography sx={{ px: 1 }}>
-          Tú puedes ayudar donando acá
+        <Typography sx={{ px: 1, textOverflow: 'ellipsis' }}>
+          AYUDA DONANDO ACÁ
         </Typography>
       </Fab>
     </Box>

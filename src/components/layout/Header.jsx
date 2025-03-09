@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChurchIcon from '@mui/icons-material/Church';
 import { useState, useEffect } from "react";
+import '../../styles/catholic-animations.css';
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -46,6 +47,16 @@ const Header = () => {
   return (
    <Box>
     <AppBar position="fixed" sx={{
+      '&::before': {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '2px',
+        background: 'var(--catholic-gold)',
+        animation: 'rosaryGlow 2s infinite'
+      },
       backgroundColor: scrolled ? 'rgba(114, 47, 55, 0.95)' : 'var(--primary-color)',
       color: 'white',
       boxShadow: scrolled ? '0 2px 10px rgba(0,0,0,0.2)' : '0 2px 4px rgba(0,0,0,0.1)',
